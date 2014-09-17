@@ -42,12 +42,10 @@ object Lists {
    */
   def max(xs: List[Int]): Int = {
     xs match {
-    	case head :: tail => {
-    		if (tail.isEmpty) head
-    			else
-    		if (head > max(tail)) head else max(tail)
-    	}
-    	case Nil =>  throw new NoSuchElementException
+      case head :: tail => {
+    	if (tail.isEmpty) head else if (head > max(tail)) head else max(tail)
+      }
+      case Nil =>  throw new NoSuchElementException
     }
   }
 }
